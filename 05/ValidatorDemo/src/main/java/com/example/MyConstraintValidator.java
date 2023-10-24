@@ -18,10 +18,6 @@ public class MyConstraintValidator implements ConstraintValidator<MyConstraint, 
      */
     @Override
     public boolean isValid(String s, ConstraintValidatorContext validatorContext) {
-        if (!(s.equals("北京") || s.equals("上海"))) {
-            return false;
-        }
-
-        return true;
+        return s.equals("北京") || s.equals("上海");
     }
 }

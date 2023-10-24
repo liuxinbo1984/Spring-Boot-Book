@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        .warn{color:red}
+    </style>
+    <title></title>
+</head>
 <body>
-<style type="text/css">
-   .warn{color:red}
-</style>
+
 <form th:action="@{/test}" th:object="${user}" method="post">
     <div>
         <div>

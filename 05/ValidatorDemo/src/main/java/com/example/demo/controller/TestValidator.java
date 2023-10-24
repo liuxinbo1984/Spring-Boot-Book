@@ -28,6 +28,7 @@ public class TestValidator {
         if (bindingResult.hasErrors()) {
             return "form";
         }
+
         /**
          * @Description:
          * 1.使用RedirectAttributes的addAttribute方法传递参数会跟随在URL后面 ，如上代码即为?name=long&age=45
