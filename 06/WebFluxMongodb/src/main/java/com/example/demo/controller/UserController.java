@@ -48,7 +48,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public Mono updateUser(@PathVariable(value = "id") String id,
+    public Mono<ResponseEntity<User>> updateUser(@PathVariable(value = "id") String id,
                            @Valid User user) {
         return userRepository.findById(id)
                 .flatMap(existingUser -> {

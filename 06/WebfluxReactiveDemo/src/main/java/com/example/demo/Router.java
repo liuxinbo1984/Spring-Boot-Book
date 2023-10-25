@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,12 +21,13 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
  * 作者姓名           修改时间           版本号              描述
  */
 @Configuration
+@AllArgsConstructor
 public class Router {
-    @Autowired
-    private HelloWorldHandler helloWorldHandler;
+
+    private final HelloWorldHandler helloWorldHandler;
     @Bean
     public RouterFunction<ServerResponse> getString(){
-        return route(GET("/helloworld"),req->helloWorldHandler.sayHelloWorld(req));
+        return route(GET("/helloworld"), helloWorldHandler::sayHelloWorld);
     }
 
 }

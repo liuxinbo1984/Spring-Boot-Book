@@ -8,6 +8,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -34,9 +35,7 @@ public class UserController {
      */
     @GetMapping("/list")
     public Flux<User> getAll() {
-        return Flux.fromIterable(users.entrySet().stream()
-                .map(entry -> entry.getValue())
-                .collect(Collectors.toList()));
+        return Flux.fromIterable(new ArrayList<>(users.values()));
     }
 
     /**

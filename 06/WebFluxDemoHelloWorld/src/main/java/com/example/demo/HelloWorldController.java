@@ -20,5 +20,4 @@ public class HelloWorldController {
     public Mono<String> helloworld(){
         return Mono.just("This is WebFlux demo");
     }
-
 }
