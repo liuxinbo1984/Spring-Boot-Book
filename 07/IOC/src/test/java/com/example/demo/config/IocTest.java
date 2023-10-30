@@ -22,8 +22,7 @@ import static org.junit.Assert.*;
  * 作者姓名           修改时间           版本号              描述
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
-
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 public class IocTest {
     @Autowired
     private ApplicationContext applicationContext;

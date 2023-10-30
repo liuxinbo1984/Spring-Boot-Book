@@ -1,4 +1,7 @@
 package com.example.demo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +20,10 @@ import java.io.IOException;
  */
 @WebServlet(urlPatterns = "/ServletDemo02/*")
 public class ServletDemo02 extends HttpServlet{
+
+    @Autowired
+    ServletRegistrationBean<HttpServlet> registrationBean;
+
     /**
      * Description:
      * 重写doGet方法,父类的HttpServlet的doGet方法是空的，没有实现任何代码，子类需要重写此方法。
@@ -24,6 +31,7 @@ public class ServletDemo02 extends HttpServlet{
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(registrationBean.getServletName());
         System.out.println("doGet");
         resp.getWriter().print("Servlet ServletDemo02");
     }
