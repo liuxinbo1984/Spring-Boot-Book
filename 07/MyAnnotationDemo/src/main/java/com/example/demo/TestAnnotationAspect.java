@@ -22,7 +22,7 @@ public class TestAnnotationAspect {
         Method method = sign.getMethod();
         MyTestAnnotation annotation = method.getAnnotation(MyTestAnnotation.class);
         //获取注解参数
-        System.out.print("打印TestAnnotation 参数：" + annotation.value());
+        System.out.println("打印TestAnnotation 参数：" + annotation.value());
 
     }
 

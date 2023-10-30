@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
@@ -14,4 +16,9 @@ import static org.junit.Assert.*;
  */
 public class TestControllerTest {
 
+    @Test
+    @MyTestAnnotation("测试")
+    public void testAnnotation() {
+
+    }
 }

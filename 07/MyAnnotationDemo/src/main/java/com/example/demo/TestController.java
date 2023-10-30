@@ -21,7 +21,7 @@ import java.util.List;
 @EnableAspectJAutoProxy
 public class TestController {
     @RequestMapping("/")
-    @MyTestAnnotation("测试Annotation")
+    @MyTestAnnotation(value="测试Annotation")
     public void testAnnotation() {
         System.err.println("测试自定义注解");
     }
