@@ -24,7 +24,6 @@ public class UserListControllerB {
     //public Page<User> getUserList(Integer pageNum, Integer pageSize)
     {
         PageHelper.startPage(pageNum, pageSize);
-        Page<User>  userList= userMapper.getUserList();
-        return userList;
+        return userMapper.getUserList();
     }
 }

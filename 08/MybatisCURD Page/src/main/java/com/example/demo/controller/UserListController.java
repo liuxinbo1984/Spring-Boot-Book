@@ -7,7 +7,9 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -20,7 +22,7 @@ import java.util.List;
 public class UserListController {
     @Autowired
     UserMapper userMapper;
-    @RequestMapping("/listall")
+    @RequestMapping(value = "/listall",method = RequestMethod.GET)
     public String listCategory(Model m, @RequestParam(value="start",defaultValue="0")int start, @RequestParam(value = "size", defaultValue = "5") int size) throws Exception {
         //1. 在参数里接受当前是第几页 start ，以及每页显示多少条数据 size。 默认值分别是0和5。
         //2. 根据start,size进行分页，并且设置id 倒排序

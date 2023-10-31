@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author longzhonghua
@@ -8,6 +9,7 @@ import lombok.Data;
  */
 //User（不同于JPA的点，不需要映射.JPA需要注解@entity）
 @Data
+@NoArgsConstructor
 public class User {
     private int id;
     private String name;
