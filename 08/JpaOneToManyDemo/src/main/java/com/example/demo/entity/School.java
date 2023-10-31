@@ -17,7 +17,7 @@ public class School {
     private long id;
     private String name;
 //    @OneToMany(cascade = CascadeType.ALL)
-@OneToMany()
+    @OneToMany()
     @JoinColumn(name = "school_id")
     private List<Teacher> teacherList;
 }
