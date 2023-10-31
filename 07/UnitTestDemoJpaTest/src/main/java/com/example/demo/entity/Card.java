@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "cardtestjpa")
+@Table(name = "t_card")
 @Data
 public class Card {
     @Id

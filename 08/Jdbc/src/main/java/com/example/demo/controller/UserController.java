@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.User;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,12 +17,13 @@ import java.util.Map;
  * @author longzhonghua
  * @data 2/24/2019 9:51 AM
  */
+@AllArgsConstructor
 @RestController
 @RequestMapping("user")
 public class UserController {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+
+    private final JdbcTemplate jdbcTemplate;
 
     //创建数据表
     @GetMapping("createUserTable")
@@ -93,26 +95,23 @@ public class UserController {
 
     //getUserByName?userName=longzhiran
     @GetMapping("getUserByName")
-    public List getUserByName(String userName)throws Exception {
+    public List<User> getUserByName(String userName)throws Exception {
         String sql = "SELECT * FROM user WHERE USERNAME = ?";
-        List<User> list = jdbcTemplate.query(sql, new User(), new Object[]{userName});
-        return list;
+        return jdbcTemplate.query(sql, new User(), new Object[]{userName});
     }
 
     //getMapById?id=1
     @GetMapping("getMapById")
     public Map getMapById(Integer id) throws Exception {
         String sql = "SELECT * FROM user WHERE ID = ?";
-        Map map = jdbcTemplate.queryForMap(sql, id);
-        return map;
+        return jdbcTemplate.queryForMap(sql, id);
     }
 
     //getUserById?id=1
     @GetMapping("getUserById")
     public User getUserById(Integer id) throws Exception {
         String sql = "SELECT * FROM user WHERE ID = ?";
-        User user = jdbcTemplate.queryForObject(sql, new User(), new Object[]{id});
-        return user;
+        return jdbcTemplate.queryForObject(sql, new User(), new Object[]{id});
     }
 
     //getAll
@@ -120,9 +119,8 @@ public class UserController {
     public List<User> list() throws Exception {
         String sql = "SELECT * FROM user";
 
-        List<User> userList = jdbcTemplate.query(sql,
-                new BeanPropertyRowMapper(User.class));
-        return userList;
+        return jdbcTemplate.query(sql,
+                new BeanPropertyRowMapper<User>(User.class));
     }
 
 }

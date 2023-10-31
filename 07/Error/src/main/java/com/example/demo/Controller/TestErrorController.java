@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * @author longzhonghua
- * @createdata 3/18/2019 2:02 PM
+ *  3/18/2019 2:02 PM
  * @description 自定义错误
  */
 @RestController
@@ -23,7 +23,7 @@ import java.util.Map;
 //继承springboot提供的ErrorController
 public class TestErrorController implements ErrorController {
     //一定要重写方法,默认返回null就可以,不然报错,因为getErrorPath为空.
-    @Override
+//    @Override
     public String getErrorPath() {
         return null;
     }
@@ -32,7 +32,7 @@ public class TestErrorController implements ErrorController {
     @RequestMapping
     public Map<String, Object> handleError() {
         //用Map容器返回信息
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("code", 404);
         map.put("msg", "不存在");
         return map;

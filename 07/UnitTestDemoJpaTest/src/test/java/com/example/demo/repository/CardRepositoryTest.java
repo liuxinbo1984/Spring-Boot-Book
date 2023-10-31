@@ -35,7 +35,7 @@ import static org.junit.Assert.*;
 @SpringBootTest
 //@DataJpaTest
 @Transactional
-//@Rollback(false)
+@Rollback(value = false)
 public class CardRepositoryTest {
     @Autowired
     private  CardRepository  cardRepository;
@@ -54,7 +54,7 @@ public class CardRepositoryTest {
 
         card.setNum(3);
         cardRepository.save(card);
-        //throw new RuntimeException();
+        throw new RuntimeException();
     }
 
 
