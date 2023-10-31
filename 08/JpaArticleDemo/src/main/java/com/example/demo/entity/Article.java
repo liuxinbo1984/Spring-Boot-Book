@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -20,9 +21,12 @@ import java.util.List;
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
  */
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 public class Article extends BaseEntity implements Serializable {
+
+//    由数据管理主键生成
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

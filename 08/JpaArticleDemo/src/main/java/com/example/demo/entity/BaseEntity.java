@@ -1,10 +1,13 @@
 package com.example.demo.entity;
 
+import lombok.Getter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
@@ -19,6 +22,7 @@ import javax.persistence.MappedSuperclass;
  * 1.实体头加注解@EntityListeners(AuditingEntityListener.class)
  * 2.启动类加@EnableJpaAuditing
  * 3.
+ *
  * @CreatedDate
  * @Column(name = "createTime")
  * private Date createTime;
@@ -27,6 +31,7 @@ import javax.persistence.MappedSuperclass;
  * private Date updateTime;
  * 数据库添加相应控制也可以CURRENT_TIMESTAMP ， CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
  */
+@Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity {
@@ -42,7 +47,7 @@ public abstract class BaseEntity {
 
     /*    最后修改时间*/
     @LastModifiedDate
-//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Long updateTime;
 
 
@@ -59,32 +64,16 @@ public abstract class BaseEntity {
     @LastModifiedBy
     private String lastmodifiedBy;
 
-    public Long getCreateBy() {
-        return createBy;
-    }
-
     public void setCreateBy(Long createBy) {
         this.createBy = createBy;
-    }
-
-    public String getLastmodifiedBy() {
-        return lastmodifiedBy;
     }
 
     public void setLastmodifiedBy(String lastmodifiedBy) {
         this.lastmodifiedBy = lastmodifiedBy;
     }
 
-    public Long getCreateTime() {
-        return createTime;
-    }
-
     public void setCreateTime(Long createTime) {
         this.createTime = createTime;
-    }
-
-    public Long getUpdateTime() {
-        return updateTime;
     }
 
     public void setUpdateTime(Long updateTime) {

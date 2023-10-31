@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Article;
 import com.example.demo.repository.ArticleRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
@@ -20,10 +21,10 @@ import javax.annotation.Resource;
  */
 @Controller
 @RequestMapping("article")
+@AllArgsConstructor
 public class ArticleController {
-    @Autowired
 
-    private ArticleRepository articleRepository;
+    private final ArticleRepository articleRepository;
 
     /**
      * Description: 文章列表
@@ -97,7 +98,7 @@ public class ArticleController {
     public String editArticleSave(Article model, long id)  throws Exception{
         model.setId(id);
         articleRepository.save(model);
-        return "redirect:";
+        return "redirect:/article/";
     }
 
 }
