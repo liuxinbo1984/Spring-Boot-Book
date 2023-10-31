@@ -52,14 +52,14 @@ public class Article  implements Serializable {
    /**
     * Description: 创建虚拟字段
     */
-   @Transient
-    private List keywordlists;
+    @Transient
+    private List<String> keywordlists;
 
-    public List getKeywordlists() {
+    public List<String> getKeywordlists() {
 
         return Arrays.asList(this.keyword.trim().split("|"));
     }
-    public void setKeywordlists(List keywordlists) {
+    public void setKeywordlists(List<String> keywordlists) {
         this.keywordlists = keywordlists;
 
     }
