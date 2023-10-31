@@ -26,7 +26,7 @@ import java.util.Map;
 //继承springboot提供的ErrorController
 public class TestErrorController implements ErrorController {
     //一定要重写方法,默认返回null就可以,不然报错,因为getErrorPath为空.
-    @Override
+
     public String getErrorPath() {
         return null;
     }
